@@ -16,5 +16,4 @@ public class javaswing {
         }
         JOptionPane.showMessageDialog(null,"You are "+name.toUpperCase()+" and you are "+age+" years old.");
 	}
-
 }
