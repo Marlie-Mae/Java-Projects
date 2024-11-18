@@ -8,7 +8,6 @@ public class LibraryManagementSystem {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
         
-        // Adding some books to the library
         books.add(new Book("To Kill a Mockingbird"));
         books.add(new Book("1984"));
         books.add(new Book("The Great Gatsby"));
@@ -22,7 +21,7 @@ public class LibraryManagementSystem {
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
             
             switch (choice) {
                 case 1:
@@ -104,7 +103,6 @@ class Book {
             System.out.println("\"" + title + "\" is currently unavailable.");
         }
     }
-    
     public void returnBook() {
         isAvailable = true;
         System.out.println("You returned \"" + title + "\".");
