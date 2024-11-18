@@ -72,5 +72,4 @@ public class gradingsystem {
         } while(option != 3);
 
 	}
-
 }
