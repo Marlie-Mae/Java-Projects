@@ -44,6 +44,25 @@ public class BookShop {
 	public BookShop() {
 		initialize();
 	}
+	
+	Connection con;
+	PreparedStatement pst;
+	
+	public void Connect()
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/bookshop", "root", "");
+		}
+		catch (ClassNotFoundException ex)
+		{
+			
+		}
+		catch (SQLException ex)
+		{
+			
+		}
+	}
 
 	/**
 	 * Initialize the contents of the frame.
