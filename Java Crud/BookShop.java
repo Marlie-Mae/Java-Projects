@@ -43,6 +43,7 @@ public class BookShop {
 	 */
 	public BookShop() {
 		initialize();
+		Connect();
 	}
 	
 	Connection con;
@@ -52,7 +53,7 @@ public class BookShop {
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost/bookshop", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/javacrud", "root", "");
 		}
 		catch (ClassNotFoundException ex)
 		{
