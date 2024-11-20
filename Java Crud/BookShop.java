@@ -12,6 +12,8 @@ import javax.swing.JTable;
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BookShop {
 
@@ -114,6 +116,15 @@ public class BookShop {
 		panel.add(txtpbprice);
 		
 		JButton btnsave = new JButton("Save");
+		btnsave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				
+				
+			}
+		});
 		btnsave.setBounds(23, 245, 89, 23);
 		frame.getContentPane().add(btnsave);
 		
