@@ -71,13 +71,16 @@ public class BookShop {
 	
 	public void table_load () 
 	{
-		pst = con.prepareStatement("select * from book");
-		rs = pst.executeQuery();
-		table.setModel(DbUtils.resultSetToTableModel(rs));
-	}
-	catch (SQLException e)
-	{
-		e.printStackTrace();
+		try {
+			pst = con.prepareStatement("select * from book");
+			rs = pst.executeQuery();
+			table.setModel(DbUtils.resultSetToTableModel(rs));
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 
 
