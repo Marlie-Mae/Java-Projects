@@ -48,10 +48,12 @@ public class BookShop {
 	public BookShop() {
 		initialize();
 		Connect();
+		table_load();
 	}
 	
 	Connection con;
 	PreparedStatement pst;
+	ResultSet rs;
 	
 	public void Connect() {
 	    try {
@@ -71,7 +73,7 @@ public class BookShop {
 	{
 		pst = con.prepareStatement("select * from book");
 		rs = pst.executeQuery();
-		table_1.setModel(DbUtils.resultSetToTableModel(rs));
+		table.setModel(DbUtils.resultSetToTableModel(rs));
 	}
 	catch (SQLException e)
 	{
