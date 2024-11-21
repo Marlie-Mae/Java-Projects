@@ -3,6 +3,8 @@ import java.sql.*;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
@@ -20,9 +22,9 @@ public class BookShop {
 	private JFrame frame;
 	private JTextField txtbname;
 	private JTextField txtbedition;
-	private JTextField txtpbprice;
+	private JTextField txtbprice;
 	private JTable table;
-	private JTextField textField_2;
+	private JTextField txtbid;
 
 	/**
 	 * Launch the application.
@@ -110,18 +112,37 @@ public class BookShop {
 		txtbedition.setBounds(109, 60, 150, 20);
 		panel.add(txtbedition);
 		
-		txtpbprice = new JTextField();
-		txtpbprice.setColumns(10);
-		txtpbprice.setBounds(109, 91, 150, 20);
-		panel.add(txtpbprice);
+		txtbprice = new JTextField();
+		txtbprice.setColumns(10);
+		txtbprice.setBounds(109, 91, 150, 20);
+		panel.add(txtbprice);
 		
 		JButton btnsave = new JButton("Save");
 		btnsave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				String bname, edition, price;
 				
+				bname = txtbname.getText();
+				edition = txtbedition.getText();
+				price = txtbprice.getText();
 				
-				
+				try {
+					pst = con.prepareStatement("insert into book(name,edition,price)values(?,?,?)");
+					pst.setString(1, bname);
+					pst.setString(2, edition);
+					pst.setString(3, price);
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Record Added!");
+					//table_load();
+					txtbname.setText("");
+					txtbedition.setText("");
+					txtbprice.setText("");
+					txtbname.requestFocus();
+				}
+				catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				
 			}
 		});
@@ -156,17 +177,17 @@ public class BookShop {
 		lblBookId.setFont(new Font("Tahoma", Font.BOLD, 14));
 		panel_1.add(lblBookId);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(114, 25, 159, 20);
-		textField_2.setColumns(10);
-		panel_1.add(textField_2);
+		txtbid = new JTextField();
+		txtbid.setBounds(114, 25, 159, 20);
+		txtbid.setColumns(10);
+		panel_1.add(txtbid);
 		
-		JButton btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(356, 304, 89, 46);
-		frame.getContentPane().add(btnUpdate);
+		JButton btnupdate = new JButton("Update");
+		btnupdate.setBounds(356, 304, 89, 46);
+		frame.getContentPane().add(btnupdate);
 		
-		JButton btnclear_1_1 = new JButton("Delete");
-		btnclear_1_1.setBounds(475, 304, 89, 46);
-		frame.getContentPane().add(btnclear_1_1);
+		JButton btndelete = new JButton("Delete");
+		btndelete.setBounds(475, 304, 89, 46);
+		frame.getContentPane().add(btndelete);
 	}
 }
