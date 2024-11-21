@@ -53,21 +53,31 @@ public class BookShop {
 	Connection con;
 	PreparedStatement pst;
 	
-	public void Connect()
-	{
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost/javacrud", "root", "");
-		}
-		catch (ClassNotFoundException ex)
-		{
-			
-		}
-		catch (SQLException ex)
-		{
-			
-		}
+	public void Connect() {
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        con = DriverManager.getConnection("jdbc:mysql://localhost:3307/javacrud", "root", "");
+	        System.out.println("Database connected successfully.");
+	    } catch (ClassNotFoundException ex) {
+	        ex.printStackTrace();
+	        JOptionPane.showMessageDialog(null, "Database Driver not found!");
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	        JOptionPane.showMessageDialog(null, "Failed to connect to database! Check your connection settings.");
+	    }
 	}
+	
+	public void table_load () 
+	{
+		pst = con.prepareStatement("select * from book");
+		rs = pst.executeQuery();
+		table_1.setModel(DbUtils.resultSetToTableModel(rs));
+	}
+	catch (SQLException e)
+	{
+		e.printStackTrace();
+	}
+
 
 	/**
 	 * Initialize the contents of the frame.
