@@ -108,7 +108,7 @@ public class BookShop {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 215, 0));
+		panel.setBackground(new Color(204, 204, 0));
 		panel.setBounds(23, 92, 287, 134);
 		panel.setBorder(new TitledBorder(null, "Registration", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		frame.getContentPane().add(panel);
@@ -145,8 +145,9 @@ public class BookShop {
 		panel.add(txtbprice);
 		
 		JButton btnsave = new JButton("Save");
-		btnsave.setForeground(new Color(255, 255, 255));
-		btnsave.setBackground(new Color(255, 165, 0));
+		btnsave.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnsave.setForeground(new Color(0, 0, 0));
+		btnsave.setBackground(new Color(255, 204, 51));
 		btnsave.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        String bname, edition, price;
@@ -181,8 +182,9 @@ public class BookShop {
 		frame.getContentPane().add(btnsave);
 		
 		JButton btnexit = new JButton("Exit");
-		btnexit.setForeground(new Color(255, 255, 255));
-		btnexit.setBackground(new Color(255, 165, 0));
+		btnexit.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnexit.setForeground(new Color(0, 0, 0));
+		btnexit.setBackground(new Color(255, 204, 51));
 		btnexit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -193,8 +195,9 @@ public class BookShop {
 		frame.getContentPane().add(btnexit);
 		
 		JButton btnclear = new JButton("Clear");
-		btnclear.setForeground(new Color(255, 255, 255));
-		btnclear.setBackground(new Color(255, 165, 0));
+		btnclear.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnclear.setForeground(new Color(0, 0, 0));
+		btnclear.setBackground(new Color(255, 204, 51));
 		btnclear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -209,7 +212,7 @@ public class BookShop {
 		frame.getContentPane().add(btnclear);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBackground(new Color(128, 128, 0));
+		scrollPane.setBackground(new Color(204, 204, 0));
 		scrollPane.setBounds(320, 82, 386, 190);
 		frame.getContentPane().add(scrollPane);
 		
@@ -219,7 +222,7 @@ public class BookShop {
 		table.setBackground(new Color(255, 255, 255));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 215, 0));
+		panel_1.setBackground(new Color(204, 204, 0));
 		panel_1.setBorder(new TitledBorder(null, "Search", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setBounds(24, 290, 298, 68);
 		frame.getContentPane().add(panel_1);
@@ -271,8 +274,9 @@ public class BookShop {
 		panel_1.add(txtbid);
 		
 		JButton btnupdate = new JButton("Update");
-		btnupdate.setForeground(new Color(255, 255, 255));
-		btnupdate.setBackground(new Color(255, 99, 71));
+		btnupdate.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnupdate.setForeground(new Color(0, 0, 0));
+		btnupdate.setBackground(new Color(204, 153, 102));
 		btnupdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
                 String bname,edition,price,bid;
@@ -308,8 +312,9 @@ public class BookShop {
 		frame.getContentPane().add(btnupdate);
 		
 		JButton btndelete = new JButton("Delete");
-		btndelete.setForeground(new Color(255, 255, 255));
-		btndelete.setBackground(new Color(255, 99, 71));
+		btndelete.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btndelete.setForeground(new Color(0, 0, 0));
+		btndelete.setBackground(new Color(204, 153, 102));
 		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		           String bid;
