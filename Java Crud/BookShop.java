@@ -16,6 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class BookShop {
 
@@ -193,6 +195,41 @@ public class BookShop {
 		panel_1.add(lblBookId);
 		
 		txtbid = new JTextField();
+		txtbid.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				 try {
+                     
+                     String id = txtbid.getText();
+                         pst = con.prepareStatement("select name,edition,price from book where id = ?");
+                         pst.setString(1, id);
+                         ResultSet rs = pst.executeQuery();
+                     if(rs.next()==true)
+                     {
+                       
+                         String name = rs.getString(1);
+                         String edition = rs.getString(2);
+                         String price = rs.getString(3);
+                         
+                         txtbname.setText(name);
+                         txtbedition.setText(edition);
+                         txtbprice.setText(price);
+ 
+                     }   
+                     else
+                     {
+                         txtbname.setText("");
+                         txtbedition.setText("");
+                         txtbprice.setText("");
+                          
+                     }
+                 } 
+             
+              catch (SQLException ex) {
+                    
+                 }		
+			}
+		});
 		txtbid.setBounds(114, 25, 159, 20);
 		txtbid.setColumns(10);
 		panel_1.add(txtbid);
