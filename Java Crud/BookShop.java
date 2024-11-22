@@ -97,15 +97,18 @@ public class BookShop {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setSize(745, 420);
-		frame.getContentPane().setBackground(Color.WHITE);
+		frame.getContentPane().setBackground(new Color(85, 107, 47));
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Book Shop");
-		lblNewLabel.setBounds(299, 11, 178, 60);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setBackground(new Color(255, 255, 255));
+		lblNewLabel.setBounds(278, 11, 203, 60);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 35));
 		frame.getContentPane().add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 215, 0));
 		panel.setBounds(23, 92, 287, 134);
 		panel.setBorder(new TitledBorder(null, "Registration", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		frame.getContentPane().add(panel);
@@ -142,38 +145,44 @@ public class BookShop {
 		panel.add(txtbprice);
 		
 		JButton btnsave = new JButton("Save");
+		btnsave.setForeground(new Color(255, 255, 255));
+		btnsave.setBackground(new Color(255, 165, 0));
 		btnsave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				String bname, edition, price;
-				
-				bname = txtbname.getText();
-				edition = txtbedition.getText();
-				price = txtbprice.getText();
-				
-				try {
-					pst = con.prepareStatement("insert into book(name,edition,price)values(?,?,?)");
-					pst.setString(1, bname);
-					pst.setString(2, edition);
-					pst.setString(3, price);
-					pst.executeUpdate();
-					JOptionPane.showMessageDialog(null, "Record Added!");
-					
-					txtbname.setText("");
-					txtbedition.setText("");
-					txtbprice.setText("");
-					txtbname.requestFocus();
-				}
-				catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-				
-			}
-		});
+		    public void actionPerformed(ActionEvent e) {
+		        String bname, edition, price;
+		        
+		        bname = txtbname.getText();
+		        edition = txtbedition.getText();
+		        price = txtbprice.getText();
+		        
+		        try {
+		            pst = con.prepareStatement("insert into book(name,edition,price)values(?,?,?)");
+		            pst.setString(1, bname);
+		            pst.setString(2, edition);
+		            pst.setString(3, price);
+		            pst.executeUpdate();
+		            JOptionPane.showMessageDialog(null, "Record Added!");
+		            
+		            // Clear the input fields
+		            txtbname.setText("");
+		            txtbedition.setText("");
+		            txtbprice.setText("");
+		            txtbname.requestFocus();
+		            
+		            // Refresh the table to show the new record
+		            table_load();
+		        } catch (SQLException e1) {
+		            e1.printStackTrace();
+		        }
+		    }
+		});	
+		
 		btnsave.setBounds(23, 245, 89, 23);
 		frame.getContentPane().add(btnsave);
 		
 		JButton btnexit = new JButton("Exit");
+		btnexit.setForeground(new Color(255, 255, 255));
+		btnexit.setBackground(new Color(255, 165, 0));
 		btnexit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -184,6 +193,8 @@ public class BookShop {
 		frame.getContentPane().add(btnexit);
 		
 		JButton btnclear = new JButton("Clear");
+		btnclear.setForeground(new Color(255, 255, 255));
+		btnclear.setBackground(new Color(255, 165, 0));
 		btnclear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -198,6 +209,7 @@ public class BookShop {
 		frame.getContentPane().add(btnclear);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBackground(new Color(128, 128, 0));
 		scrollPane.setBounds(320, 82, 386, 190);
 		frame.getContentPane().add(scrollPane);
 		
@@ -207,6 +219,7 @@ public class BookShop {
 		table.setBackground(new Color(255, 255, 255));
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 215, 0));
 		panel_1.setBorder(new TitledBorder(null, "Search", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setBounds(24, 290, 298, 68);
 		frame.getContentPane().add(panel_1);
@@ -258,6 +271,8 @@ public class BookShop {
 		panel_1.add(txtbid);
 		
 		JButton btnupdate = new JButton("Update");
+		btnupdate.setForeground(new Color(255, 255, 255));
+		btnupdate.setBackground(new Color(255, 99, 71));
 		btnupdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
                 String bname,edition,price,bid;
@@ -293,6 +308,8 @@ public class BookShop {
 		frame.getContentPane().add(btnupdate);
 		
 		JButton btndelete = new JButton("Delete");
+		btndelete.setForeground(new Color(255, 255, 255));
+		btndelete.setBackground(new Color(255, 99, 71));
 		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		           String bid;
