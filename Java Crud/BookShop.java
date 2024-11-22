@@ -151,7 +151,7 @@ public class BookShop {
 					pst.setString(3, price);
 					pst.executeUpdate();
 					JOptionPane.showMessageDialog(null, "Record Added!");
-					//table_load();
+					
 					txtbname.setText("");
 					txtbedition.setText("");
 					txtbprice.setText("");
@@ -167,10 +167,26 @@ public class BookShop {
 		frame.getContentPane().add(btnsave);
 		
 		JButton btnexit = new JButton("Exit");
+		btnexit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.exit(0);
+			}
+		});
 		btnexit.setBounds(122, 245, 89, 23);
 		frame.getContentPane().add(btnexit);
 		
 		JButton btnclear = new JButton("Clear");
+		btnclear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				txtbname.setText("");
+				txtbedition.setText("");
+				txtbprice.setText("");
+				txtbname.requestFocus();
+				
+			}
+		});
 		btnclear.setBounds(221, 245, 89, 23);
 		frame.getContentPane().add(btnclear);
 		
@@ -273,6 +289,7 @@ public class BookShop {
 		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		           String bid;
+		           
 		           bid  = txtbid.getText();
 		           
 		            try {
