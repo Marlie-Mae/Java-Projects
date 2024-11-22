@@ -8,6 +8,9 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import net.proteanit.sql.DbUtils;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
