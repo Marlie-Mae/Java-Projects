@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Window.Type;
 
 public class BookShop {
 
@@ -94,6 +96,8 @@ public class BookShop {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setSize(745, 420);
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Book Shop");
