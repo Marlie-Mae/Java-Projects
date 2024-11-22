@@ -235,6 +235,37 @@ public class BookShop {
 		panel_1.add(txtbid);
 		
 		JButton btnupdate = new JButton("Update");
+		btnupdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                String bname,edition,price,bid;
+                
+                bname = txtbname.getText();
+                edition = txtbedition.getText();
+                price = txtbprice.getText();
+                bid  = txtbid.getText();
+                
+                 try {
+                        pst = con.prepareStatement("update book set name= ?,edition=?,price=? where id =?");
+                        pst.setString(1, bname);
+                        pst.setString(2, edition);
+                        pst.setString(3, price);
+                        pst.setString(4, bid);
+                        pst.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Record Update!");
+                        table_load();
+                       
+                        txtbname.setText("");
+                        txtbedition.setText("");
+                        txtbprice.setText("");
+                        txtbname.requestFocus();
+                    }
+
+                    catch (SQLException e1) {
+                        
+                        e1.printStackTrace();
+                    }
+			}
+		});
 		btnupdate.setBounds(356, 304, 89, 46);
 		frame.getContentPane().add(btnupdate);
 		
