@@ -97,7 +97,7 @@ public class BookShop {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Book Shop");
-		lblNewLabel.setBounds(185, 11, 178, 60);
+		lblNewLabel.setBounds(299, 11, 178, 60);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		frame.getContentPane().add(lblNewLabel);
 		
@@ -194,7 +194,7 @@ public class BookShop {
 		frame.getContentPane().add(btnclear);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(320, 82, 270, 190);
+		scrollPane.setBounds(320, 82, 386, 190);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
@@ -285,7 +285,7 @@ public class BookShop {
                     }
 			}
 		});
-		btnupdate.setBounds(356, 304, 89, 46);
+		btnupdate.setBounds(413, 304, 89, 46);
 		frame.getContentPane().add(btnupdate);
 		
 		JButton btndelete = new JButton("Delete");
@@ -315,7 +315,7 @@ public class BookShop {
 		               }
 			}
 		});
-		btndelete.setBounds(475, 304, 89, 46);
+		btndelete.setBounds(554, 304, 89, 46);
 		frame.getContentPane().add(btndelete);
 	}
 }
