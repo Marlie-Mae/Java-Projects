@@ -87,10 +87,6 @@ public class BookShop {
 		
 	}
 
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setSize(745, 420);
